@@ -21,7 +21,6 @@
             margin: 20px;
             padding: 10px;
             border: 1px solid white;
-            display: inline-block;
             background-color: #333;
             border-radius: 10px;
             width: 220px;
@@ -52,25 +51,24 @@
 
     <script>
         const movies = [
-            { title: "Inception", description: "A mind-bending thriller about dreams.", image: "https://m.media-amazon.com/images/I/51s+FKOYwlL._AC_SY679_.jpg", link: "https://www.imdb.com/title/tt1375666/" },
-            { title: "Interstellar", description: "A journey beyond the stars.", image: "https://m.media-amazon.com/images/I/71JvffEHbCL._AC_SY679_.jpg", link: "https://www.imdb.com/title/tt0816692/" },
-            { title: "The Dark Knight", description: "The rise of the legendary Batman.", image: "https://m.media-amazon.com/images/I/51EbJlvlc3L._AC_SY679_.jpg", link: "https://www.imdb.com/title/tt0468569/" },
-            { title: "Avengers: Endgame", description: "The ultimate superhero battle.", image: "https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SY679_.jpg", link: "https://www.imdb.com/title/tt4154796/" }
+            { title: "Inception", description: "A mind-bending thriller about dreams.", image: "https://image.tmdb.org/t/p/w500/qmDpIHrmpJINaRKAfWQfftjCdyi.jpg", link: "https://www.imdb.com/title/tt1375666/" },
+            { title: "Interstellar", description: "A journey beyond the stars.", image: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg", link: "https://www.imdb.com/title/tt0816692/" },
+            { title: "The Dark Knight", description: "The rise of the legendary Batman.", image: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg", link: "https://www.imdb.com/title/tt0468569/" },
+            { title: "Avengers: Endgame", description: "The ultimate superhero battle.", image: "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg", link: "https://www.imdb.com/title/tt4154796/" }
         ];
 
         const container = document.getElementById("movieContainer");
-        movies.forEach(movie => {
+        movies.forEach(({ title, description, image, link }) => {
             const movieDiv = document.createElement("div");
             movieDiv.classList.add("movie");
             movieDiv.innerHTML = `
-                <img src="${movie.image}" alt="${movie.title} Poster">
-                <h2>${movie.title}</h2>
-                <p>${movie.description}</p>
-                <button onclick="window.open('${movie.link}', '_blank')">More Info</button>
+                <img src="${image}" alt="${title} Poster">
+                <h2>${title}</h2>
+                <p>${description}</p>
+                <button onclick="window.open('${link}', '_blank', 'noopener,noreferrer')">More Info</button>
             `;
             container.appendChild(movieDiv);
         });
     </script>
 </body>
 </html>
-  
